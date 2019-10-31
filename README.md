@@ -15,7 +15,7 @@ In your github account, create an access_token from the following
 - name the token mynotepad to ensure
 - ensure "repo" is checked
 - click "Generate token"
-- copy the only revealed token **NOTE THAT YOU CAN NOT FIND THIS TOKEN AGAIN WHEN YOU NAVIGATE AWAY**
+- copy the only revealed token at the top of the list **NOTE THAT YOU CAN NOT FIND THIS TOKEN AGAIN WHEN YOU NAVIGATE AWAY**
 - replace <Your_Git_Access_Token> with your token
 
 Edit the batch or shell script:
