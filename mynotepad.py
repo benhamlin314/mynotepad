@@ -9,7 +9,7 @@ import requests
 import json
 from git import Repo
 
-git_access = <Your_Git_Access_Token>
+git_access = '<Your_Git_Access_Token>'
 
 class Notepad:
     # enums of file extensions
