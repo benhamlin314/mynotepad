@@ -82,6 +82,17 @@ class Notepad:
         '.css' : '*/'
     }
 
+    editors = {
+        'atom': 'atom',
+        'sublime': 'subl',
+        'gedit': 'gedit',
+        'vim': 'vim',
+        'emacs': 'emacs',
+        'nano': 'nano',
+        'visual studio code': 'code',
+        'notepad++': 'notepad++'
+    }
+
     extension = ''
     folder = ''
     file = ''
@@ -93,7 +104,7 @@ class Notepad:
         return parts[1]
 
     def __init__(self, editor, folder, file):
-        self.editor = editor
+        self.editor = editors[editor]
         self.folder = folder
         self.file = file
         self.extension = self.extensions[self.pullExtension(file)]
@@ -206,7 +217,7 @@ class Notepad:
                 print('File already exists or does not accept comments. To prevent overriting comment not added')
 
 parser = argparse.ArgumentParser(prog='MyNotePad', description='My notepad application to assist in programming in multiple languages')
-parser.add_argument('--editor', '-e', nargs='?', default='atom', help='specify particular text editor to open note')
+parser.add_argument('--editor', '-e', nargs='?', choices=['atom','sublime','vim','nano','gedit','visual studio code','notepad++'], default='atom', help='specify particular text editor to open note')
 parser.add_argument('--comments', '-c', nargs=1, help='Adds a comment header with given user_name and todays date', metavar='user_name')
 parser.add_argument('--project', '-p', nargs=3, help='creates git repository for project', metavar=('repo_name', 'description', 'private'))
 parser.add_argument('name', nargs=1, help='name of file')
