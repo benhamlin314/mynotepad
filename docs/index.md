@@ -27,12 +27,9 @@ Edit the batch or shell script:
 - add the path to the shell or batch script to your source
 OR
 - add the function to your source directly
-<<<<<<< HEAD
 
 Usage
 -----------------------
 [Usage](https://www.hamlan.net/mynotepad/usage)
 OR
 use the -h option to show the help for the command
-=======
->>>>>>> c5511e5f702cef117b64bf9a116aaf39a0549f52
