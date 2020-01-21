@@ -227,10 +227,34 @@ args = vars(parser.parse_args())
 
 if __name__ == '__main__':
     note = Notepad(args['editor'], args['dest'], args['name'])
-    if args['project'] is not None:
-        project = args['project']
-        note.createProject(project[0], project[1], project[2], args['dest'])
+    files = []
+    files.extend(args['name'])
+    files.extend(args['multiple'])
+    print('files: ',', '.join(files))
+    print('editor: ', note.editor)
+    print('destination: ', note.folder)
     if args['comments'] is not None:
-        note.comments(args['name'], args['multiple'], args['comments'], args['dest'])
-    note.createFiles(args['dest'], args['multiple'])
-    note.openFiles(args['name'], args['multiple'])
+        print('commentheader: ', True)
+        print('   username: ', args['comments'])
+    else:
+        print('commentheader: ', False)
+    if args['project'] is not None:
+        print('repository with following details:')
+        print('   name: ', args['project'][0])
+        print('   description: ', args['project'][1])
+        if args['project'][2] == 't' or args['project'][2] == 'T':
+            print('   private: ', True)
+        else:
+            print('   private: ', False)
+    feedback = input("Are the above settings correct? (Y/N): ")
+    if feedback == 'Y' or feedback == 'y':
+        if args['project'] is not None:
+            project = args['project']
+            note.createProject(project[0], project[1], project[2], args['dest'])
+        if args['comments'] is not None:
+            note.comments(args['name'], args['multiple'], args['comments'], args['dest'])
+        note.createFiles(args['dest'], args['multiple'])
+        note.openFiles(args['name'], args['multiple'])
+        print('Files created...')
+    else:
+        print('File creation aborted...')
